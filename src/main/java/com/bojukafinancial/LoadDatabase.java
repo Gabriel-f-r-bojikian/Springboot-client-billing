@@ -1,0 +1,24 @@
+package com.bojukafinancial;
+
+import java.math.BigDecimal;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class LoadDatabase {
+	
+	private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+	
+	@Bean
+	CommandLineRunner initDatabase(ClientRepository repository) {
+		return args -> {
+			log.info("Loading " + repository.save(new Client("Goody two-shoes", BigDecimal.ZERO)));
+			log.info("Loading " + repository.save(new Client("Seu madruga", new BigDecimal("99999"))));
+			log.info("Loading " + repository.save(new Client("Avg Joe", new BigDecimal("500"))));
+		};
+	}
+}

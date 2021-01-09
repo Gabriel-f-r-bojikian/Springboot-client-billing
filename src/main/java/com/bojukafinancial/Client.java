@@ -14,8 +14,7 @@ public class Client {
 	
 	Client() {}
 	
-	Client(Long clientId, String name, BigDecimal amountDue){
-		this.clientId = clientId;
+	Client(String name, BigDecimal amountDue){
 		this.name = name;
 		this.amountDue = amountDue;
 	}
