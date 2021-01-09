@@ -8,19 +8,19 @@ import javax.persistence.Id;
 
 @Entity
 public class Client {
-	private @Id @GeneratedValue long clientId;
+	private @Id @GeneratedValue Long clientId;
 	private String name;
 	private BigDecimal amountDue;
 	
 	Client() {}
 	
-	Client(long clientId, String name, BigDecimal amountDue){
+	Client(Long clientId, String name, BigDecimal amountDue){
 		this.clientId = clientId;
 		this.name = name;
 		this.amountDue = amountDue;
 	}
 	
-	public void setId(long clientId) {
+	public void setId(Long clientId) {
 		this.clientId = clientId;
 	}
 
@@ -42,6 +42,11 @@ public class Client {
 	
 	public BigDecimal getAmountDue() {
 		return this.amountDue;
+	}
+	
+	@Override
+	public String toString() {
+		return "Client " + "id = " + this.clientId + ", name = " + this.name + ", amount due = " + this.getAmountDue().toString();
 	}
 
 }
